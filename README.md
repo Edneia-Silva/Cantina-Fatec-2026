@@ -8,3 +8,8 @@
 
 ## Commit 2
 - Alterei os nomes dos alunos para Roger e Brianna.
+
+## Commit 3
+- Adicionei as classes **Professor** e **Servidor**.
+- Agora o sistema permite representar diferentes categorias de pessoas que usam a cantina.
+- Testei no `main.py` criando objetos de cada categoria.

@@ -1,8 +1,8 @@
 class Aluno:
-    def __init__(self, nome, matricula, curso):
+    def _init_(self, nome, matricula, curso):
         self.nome = nome
         self.matricula = matricula
         self.curso = curso
 
-    def __str__(self):
+    def _str_(self):
         return f"{self.nome} ({self.matricula}) - {self.curso}"
