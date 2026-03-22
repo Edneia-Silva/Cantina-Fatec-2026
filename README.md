@@ -55,3 +55,8 @@
 - Adicionei métodos para adicionar, listar e buscar produtos
 - Testei com exemplos simples (coxinha e suco)
 - Essa etapa mostra o uso de **estruturas de dados** (lista) para organizar os produtos
+
+## Commit 11 – Criando arquivo testes.py
+- Criei arquivo separado para validar classes (Produto e Estoque)
+- Mantive o main.py apenas para execução principal do sistema
+- Testes.py permite rodar exemplos isolados sem interferir no fluxo principal (main.py)
