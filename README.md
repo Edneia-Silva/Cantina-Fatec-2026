@@ -61,8 +61,14 @@
 - Mantive o main.py apenas para execução principal do sistema
 - Testes.py permite rodar exemplos isolados sem interferir no fluxo principal (main.py)
 
-## Commit 12 – Ajustando usuario.py
-- Recriei a classe Usuario como base
-- Adicionei subclasses Aluno, Professor, Servidor e Visitante
+## Commit 12 – Criando classe Pagamento
+- Criei a classe Pagamento para registrar transações financeiras
+- A classe guarda o usuário, valor pago e data/hora automática
+- Testei no arquivo testes.py com um exemplo de aluno pagando R$7,50
+- Esse passo mostra o uso de **encapsulamento** e integração entre classes (Usuario e Pagamento)
+
+## Commit 12 – Testando subclasses de Usuario
+- Ajustei usuario.py com as subclasses Aluno, Professor, Servidor e Visitante
+- Criei teste simples em testes.py para validar instâncias
 - Corrigi erro de import no testes.py
-- Agora é possível importar Aluno e demais subclasses diretamente de usuario.py
+- Confirmado que os imports funcionam e as classes retornam corretamente

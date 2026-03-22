@@ -32,3 +32,15 @@ if __name__ == "__main__":
     testar_pagamento()
 
 
+
+from usuario import Aluno, Professor
+
+def testar_usuarios():
+    aluno = Aluno("Alex", "IA")
+    professor = Professor("João")
+
+    print(aluno)       # Deve mostrar: Maria (Aluno)
+    print(professor)   # Deve mostrar: João (Professor)
+
+if __name__ == "__main__":
+    testar_usuarios()
