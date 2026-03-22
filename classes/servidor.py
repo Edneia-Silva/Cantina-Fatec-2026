@@ -1,6 +1,8 @@
-class Servidor:
+from classes.pessoa import Pessoa
+
+class Servidor(Pessoa):
     def __init__(self, nome, setor):
-        self.nome = nome
+        super().__init__(nome, "Servidor")
         self.setor = setor
 
     def __str__(self):

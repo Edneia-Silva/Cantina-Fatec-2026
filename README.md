@@ -13,3 +13,20 @@
 - Adicionei as classes **Professor** e **Servidor**.
 - Agora o sistema permite representar diferentes categorias de pessoas que usam a cantina.
 - Testei no `main.py` criando objetos de cada categoria.
+
+## Commit 4
+- Corrigi um erro na classe Aluno: o método __init__ estava escrito errado.
+- Agora a classe aceita argumentos corretamente (nome, matrícula e curso).
+- Testei no main.py criando dois objetos (Roger e Brianna) e funcionou.
+
+## Commit 5
+- Criei a classe **Visitante** para representar pessoas de fora da Fatec que também podem usar a cantina quando visitam a unidade.
+- Agora o sistema contempla quatro categorias: Aluno, Professor, Servidor e Visitante.
+- Testei no `main.py` criando objetos de cada categoria.
+
+## Commit 6
+- Criei o arquivo __init__.py para transformar a pasta `classes` em um pacote Python.
+- Refatorei o código criando a classe base **Pessoa**.
+- Agora **Aluno**, **Professor**, **Servidor** e **Visitante** herdam de Pessoa.
+- Essa refatoração aplica os conceitos de **herança e polimorfismo** da disciplina de LP II.
+- Testei no `main.py` e todos os objetos funcionaram corretamente.
