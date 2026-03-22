@@ -42,8 +42,16 @@
 - Apliquei encapsulamento, pois o controle de estoque está dentro da classe.
 - Também usei datetime para manipular datas de compra e vencimento.
 
-## Commit 8 – Renomeando classe Pessoa para Usuário
+## Commit 9 – Renomeando classe Pessoa para Usuário
 - Alterei o nome da classe base de Pessoa para Usuario, pois faz mais sentido no contexto da cantina.
+- Renomeei o arquivo pessoa.py para usuario.py
 - Mantive o uso de herança para representar diferentes tipos de usuários (Aluno, Professor, Servidor, Visitante).
+- Atualizei todos os imports nos demais arquivos
+- Ajustei as subclasses (Aluno, Professor, Servidor, Visitante) para herdarem de Usuario
+- Testei o código e confirmei que funciona corretamente
 
-
+## Commit 10 – Criando classe Estoque
+- Criei a classe Estoque para gerenciar todos os produtos da cantina
+- Adicionei métodos para adicionar, listar e buscar produtos
+- Testei com exemplos simples (coxinha e suco)
+- Essa etapa mostra o uso de **estruturas de dados** (lista) para organizar os produtos
