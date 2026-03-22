@@ -60,3 +60,9 @@
 - Criei arquivo separado para validar classes (Produto e Estoque)
 - Mantive o main.py apenas para execução principal do sistema
 - Testes.py permite rodar exemplos isolados sem interferir no fluxo principal (main.py)
+
+## Commit 12 – Ajustando usuario.py
+- Recriei a classe Usuario como base
+- Adicionei subclasses Aluno, Professor, Servidor e Visitante
+- Corrigi erro de import no testes.py
+- Agora é possível importar Aluno e demais subclasses diretamente de usuario.py

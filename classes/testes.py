@@ -17,3 +17,18 @@ def testar_estoque():
 
 if __name__ == "__main__":
     testar_estoque()
+
+
+from usuario import Aluno
+from pagamento import Pagamento
+
+def testar_pagamento():
+    aluno = Aluno("Alana", "IA")
+    pagamento = Pagamento(aluno, 7.50)
+
+    print(pagamento)
+
+if __name__ == "__main__":
+    testar_pagamento()
+
+
