@@ -44,3 +44,19 @@ def testar_usuarios():
 
 if __name__ == "__main__":
     testar_usuarios()
+
+
+from usuario import Aluno
+from produto import Produto
+from venda import Venda
+
+def testar_venda():
+    aluno = Aluno("Alana", "IA")
+    coxinha = Produto("Coxinha", 2.00, 5.00, "20/03/2026", "25/03/2026", 50)
+
+    venda = Venda(aluno, coxinha, 2)
+    print(venda)
+    print("Pagamento:", venda.pagamento)
+
+if __name__ == "__main__":
+    testar_venda()

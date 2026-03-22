@@ -67,8 +67,14 @@
 - Testei no arquivo testes.py com um exemplo de aluno pagando R$7,50
 - Esse passo mostra o uso de **encapsulamento** e integração entre classes (Usuario e Pagamento)
 
-## Commit 12 – Testando subclasses de Usuario
+## Commit 13 – Testando subclasses de Usuario
 - Ajustei usuario.py com as subclasses Aluno, Professor, Servidor e Visitante
 - Criei teste simples em testes.py para validar instâncias
 - Corrigi erro de import no testes.py
 - Confirmado que os imports funcionam e as classes retornam corretamente
+
+## Commit 14 – Criando classe Venda
+- Criei a classe Venda para representar uma operação completa de compra
+- Venda conecta Usuario, Produto e Pagamento em uma única transação
+- Adicionei atributos: quantidade, valor total e data/hora
+- Testei no arquivo testes.py com exemplo de aluno comprando 2 coxinhas 
