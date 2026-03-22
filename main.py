@@ -9,8 +9,9 @@ professor1 = Professor("Orlando", "Estrutura de Dados")
 servidor1 = Servidor("Carlos", "Biblioteca")
 visitante1 = Visitante("Fernanda", "RG 987654")
 
-print(aluno1)
-print(aluno2)
-print(professor1)
-print(servidor1)
-print(visitante1)
+pessoas = [aluno1, aluno2, professor1, servidor1, visitante1]
+
+for pessoa in pessoas:
+    print(pessoa)
+    print(pessoa.acessar_cantina())
+    print("-" * 40)

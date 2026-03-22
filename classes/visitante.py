@@ -7,3 +7,6 @@ class Visitante(Pessoa):
 
     def __str__(self):
         return f"Visitante {self.nome} - Documento: {self.documento}"
+
+    def acessar_cantina(self):
+        return f"Visitante {self.nome} acessa a cantina com documento e autorização."

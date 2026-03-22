@@ -30,3 +30,9 @@
 - Agora **Aluno**, **Professor**, **Servidor** e **Visitante** herdam de Pessoa.
 - Essa refatoração aplica os conceitos de **herança e polimorfismo** da disciplina de LP II.
 - Testei no `main.py` e todos os objetos funcionaram corretamente.
+
+## Commit 7
+- Adicionei o método acessar_cantina() na classe base Pessoa.
+- Sobrescrevi o método em Aluno, Professor, Servidor e Visitante.
+- Demonstrei polimorfismo: cada classe acessa a cantina de forma diferente.
+- Testei no main.py percorrendo uma lista de pessoas.

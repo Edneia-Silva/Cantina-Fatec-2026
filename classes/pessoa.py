@@ -5,3 +5,6 @@ class Pessoa:
 
     def __str__(self):
         return f"{self.nome} - {self.categoria}"
+
+    def acessar_cantina(self):
+        return f"{self.categoria} {self.nome} acessa a cantina."
