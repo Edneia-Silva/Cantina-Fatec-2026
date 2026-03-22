@@ -1,7 +1,7 @@
 class Servidor:
-    def _init_(self, nome, setor):
+    def __init__(self, nome, setor):
         self.nome = nome
         self.setor = setor
 
-    def _str_(self):
+    def __str__(self):
         return f"Servidor {self.nome} - {self.setor}"

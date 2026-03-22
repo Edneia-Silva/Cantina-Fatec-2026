@@ -1,7 +1,7 @@
 class Professor:
-    def _init_(self, nome, disciplina):
+    def __init__(self, nome, disciplina):
         self.nome = nome
         self.disciplina = disciplina
 
-    def _str_(self):
+    def __str__(self):
         return f"Professor {self.nome} - {self.disciplina}"
