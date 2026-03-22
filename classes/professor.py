@@ -1,6 +1,6 @@
-from classes.pessoa import Pessoa
+from classes.usuario import Usuario
 
-class Professor(Pessoa):
+class Professor(Usuario):
     def __init__(self, nome, disciplina):
         super().__init__(nome, "Professor")
         self.disciplina = disciplina

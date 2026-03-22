@@ -34,5 +34,12 @@
 ## Commit 7
 - Adicionei o método acessar_cantina() na classe base Pessoa.
 - Sobrescrevi o método em Aluno, Professor, Servidor e Visitante.
-- Demonstrei polimorfismo: cada classe acessa a cantina de forma diferente.
+- Usei polimorfismo: cada classe acessa a cantina de forma diferente.
 - Testei no main.py percorrendo uma lista de pessoas.
+
+## Commit 8 – Classe Produto
+- Criei a classe Produto para representar os itens da cantina.
+- Apliquei encapsulamento, pois o controle de estoque está dentro da classe.
+- Também usei datetime para manipular datas de compra e vencimento.
+
+
