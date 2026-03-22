@@ -42,4 +42,8 @@
 - Apliquei encapsulamento, pois o controle de estoque está dentro da classe.
 - Também usei datetime para manipular datas de compra e vencimento.
 
+## Commit 8 – Renomeando classe Pessoa para Usuário
+- Alterei o nome da classe base de Pessoa para Usuario, pois faz mais sentido no contexto da cantina.
+- Mantive o uso de herança para representar diferentes tipos de usuários (Aluno, Professor, Servidor, Visitante).
+
 
