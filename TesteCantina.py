@@ -1,49 +1,34 @@
+from faker import Faker
+import pickle
+
 from classes.usuario import Usuario
 from classes.produto import Produto
 from classes.estoque import Estoque
 from classes.venda import Venda
-from faker import Faker
 
-def testar_venda_fifo():
-    # Commit 17
-    aluno = Usuario("Alana", "Aluno", "IA")
-    estoque = Estoque()
-    estoque.adicionar_produto(Produto("Suco de Laranja", 5, 7, "20/03/2026", "25/03/2026", 5))
-    estoque.adicionar_produto(Produto("Suco de Laranja", 5, 7, "20/03/2026", "30/03/2026", 10))
+# Funções de relatório
+def relatorio_vendas(vendas):
+    print("\n--- Relatório de Vendas ---")
+    for venda in vendas:
+        print(venda)
 
-    print("\n--- Estoque antes da venda ---")
-    estoque.listar_produtos()
-
-    # Primeira venda: 5 unidades do primeiro lote
-    venda1 = Venda(aluno, estoque, "Suco de Laranja", 5)
-    print(venda1)
-
-    # Segunda venda: 2 unidades do segundo lote
-    venda2 = Venda(aluno, estoque, "Suco de Laranja", 2)
-    print(venda2)
-
-    print("\n--- Estoque após a venda ---")
-    estoque.listar_produtos()
-
-def testar_edicao_estoque():
-    # Commit 18
-    estoque = Estoque()
-    estoque.adicionar_produto(Produto("Pastel", 4, 6, "20/03/2026", "25/03/2026", 10))
-
-    print("\n--- Estoque inicial ---")
-    estoque.listar_produtos()
-
-    print("\n--- Editando quantidade ---")
-    estoque.editar_quantidade("Pastel", 15)
-    estoque.editar_quantidade("Suco", 20)
-
-    print("\n--- Estoque após edição ---")
-    estoque.listar_produtos()
+def relatorio_consumo(estoque_inicial, estoque_final):
+    print("\n--- Relatório de Consumo ---")
+    nomes_finais = [p.nome for p in estoque_final.produtos]
+    for produto_inicial in estoque_inicial.produtos:
+        if produto_inicial.nome in nomes_finais:
+            produto_final = next(p for p in estoque_final.produtos if p.nome == produto_inicial.nome)
+            consumido = produto_inicial.quantidade - produto_final.quantidade
+        else:
+            consumido = produto_inicial.quantidade  # produto foi totalmente consumido
+        print(f"{produto_inicial.nome}: {consumido} unidades consumidas")
 
 def testar_faker_cantina():
-    # Commit 19
     faker = Faker("pt_BR")
     estoque = Estoque()
+
+    # Guardar estoque inicial para relatório de consumo
+    estoque_inicial = Estoque()
 
     # Criar produtos aleatórios
     for _ in range(3):
@@ -55,14 +40,13 @@ def testar_faker_cantina():
 
         produto = Produto(nome_produto, preco_custo, preco_venda, "20/03/2026", validade, quantidade)
         estoque.adicionar_produto(produto)
+        estoque_inicial.adicionar_produto(Produto(nome_produto, preco_custo, preco_venda, "20/03/2026", validade, quantidade))
 
     print("\n--- Estoque gerado com Faker ---")
     estoque.listar_produtos()
 
-    # Criar aluno aleatório
+    # Criar aluno e venda aleatória
     aluno = Usuario(faker.first_name(), "Aluno", "IA")
-
-    # Criar venda aleatória
     produto_escolhido = estoque.produtos[0]
     quantidade_venda = faker.random_int(min=1, max=produto_escolhido.quantidade)
 
@@ -72,8 +56,29 @@ def testar_faker_cantina():
     print("\n--- Estoque após venda aleatória ---")
     estoque.listar_produtos()
 
-# Chamadas de teste
-testar_venda_fifo()
-testar_edicao_estoque()
-testar_faker_cantina()
+    # 🔹 Salvar com pickle
+    with open("estoque.pkl", "wb") as f:
+        pickle.dump(estoque, f)
+    with open("vendas.pkl", "wb") as f:
+        pickle.dump([venda], f)
 
+    print("\nDados salvos em estoque.pkl e vendas.pkl")
+
+    # Relatórios
+    relatorio_vendas([venda])
+    relatorio_consumo(estoque_inicial, estoque)
+
+def carregar_dados():
+    with open("estoque.pkl", "rb") as f:
+        estoque_carregado = pickle.load(f)
+    with open("vendas.pkl", "rb") as f:
+        vendas_carregadas = pickle.load(f)
+
+    print("\n--- Estoque carregado do arquivo ---")
+    estoque_carregado.listar_produtos()
+
+    relatorio_vendas(vendas_carregadas)
+
+# Chamadas de teste
+testar_faker_cantina()
+carregar_dados()

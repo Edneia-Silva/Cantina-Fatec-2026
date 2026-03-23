@@ -113,21 +113,9 @@ Este projeto simula o funcionamento de uma cantina acadêmica, com controle de e
     - Forma de pagamento simulada.  
 - Essa funcionalidade facilita a validação do sistema sem precisar cadastrar manualmente cada item.  
 - Os testes foram centralizados no arquivo `TesteCantina.py`, que agora também utiliza dados aleatórios para simular cenários reais.
-- Objetivo: Permitir que o sistema seja testado em cenários dinâmicos, garantindo que a lógica de venda, pagamento e atualização de estoque funcione corretamente mesmo com dados diferentes a cada execução.
-Resultado esperado
-A cada execução:
-- Produtos diferentes são gerados no estoque.
-- Alunos fictícios são criados com nomes aleatórios.
-- Uma venda aleatória é realizada e o estoque atualizado.
-Exemplo de saída:
---- Estoque gerado com Faker ---
-Molestias | Estoque: 17 | Preço venda: R$20.0
-Occaecati | Estoque: 11 | Preço venda: R$13.5
-Ex | Estoque: 8 | Preço venda: R$8.0
-Venda realizada: Evelyn comprou 4x Ex por R$32.00 em 23/03/2026 02:12:33
-Pagamento: Evelyn (Aluno, IA) pagou R$32.00 via PIX em 23/03/2026 02:12:33
 
---- Estoque após venda aleatória ---
-Molestias | Estoque: 17 | Preço venda: R$20.0
-Occaecati | Estoque: 11 | Preço venda: R$13.5
-Ex | Estoque: 4 | Preço venda: R$8.0
+# Commit 20 – Persistência de dados e Relatórios
+- Implementada a utilização da biblioteca pickle para armazenar dados de forma não volátil, permitindo salvar e carregar posteriormente o estoque e as vendas.
+- Criadas funções de relatórios de vendas e relatórios de consumo, possibilitando visualizar:todas as transações realizadas e quantidade de produtos consumidos em cada venda.
+- Agora o sistema não apenas gera dados aleatórios com Faker, mas também mantém histórico e apresenta relatórios completos.
+
