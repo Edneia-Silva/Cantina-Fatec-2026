@@ -90,3 +90,8 @@
 - Ajustei __str__ para exibir também o curso do usuário
 - Mantive os campos já existentes (usuário, valor, data/hora)
 - Testei integração com Venda para gerar pagamento automaticamente
+
+## Commit 17 – Integração de Venda com Pagamento
+- Ajustei __str__ da classe Venda para exibir também o pagamento
+- Mantive a lógica de consumo FIFO e validação de estoque
+- Testei com diferentes usuários para confirmar integração completa

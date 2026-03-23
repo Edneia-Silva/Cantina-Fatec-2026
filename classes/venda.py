@@ -15,8 +15,9 @@ class Venda:
         self.itens = vendidos
         self.valor_total = sum(produto.preco_venda * qtd for produto, qtd in vendidos)
         self.pagamento = Pagamento(usuario, self.valor_total)
-
+    
     def __str__(self):
         itens_str = ", ".join([f"{qtd}x {produto.nome}" for produto, qtd in self.itens])
         return (f"Venda realizada: {self.usuario.nome} comprou {itens_str} "
-                f"por R${self.valor_total:.2f} em {self.data_hora.strftime('%d/%m/%Y %H:%M:%S')}")
+            f"por R${self.valor_total:.2f} em {self.data_hora.strftime('%d/%m/%Y %H:%M:%S')}\n"
+            f"{self.pagamento}")
