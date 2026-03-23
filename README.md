@@ -78,3 +78,15 @@
 - Venda conecta Usuario, Produto e Pagamento em uma única transação
 - Adicionei atributos: quantidade, valor total e data/hora
 - Testei no arquivo testes.py com exemplo de aluno comprando 2 coxinhas 
+
+## Commit 15 – Implementando controle de vencimento
+- Ajustei Estoque para verificar data de vencimento antes da venda
+- Produtos vencidos são removidos automaticamente e não podem ser vendidos
+- Mantive a lógica FIFO para consumir primeiro os itens mais antigos
+- Testei com produtos vencidos e válidos para confirmar o funcionamento
+
+## Commit 16 – Incrementando controle de pagamento
+- Adicionei campo metodo fixo como PIX na classe Pagamento
+- Ajustei __str__ para exibir também o curso do usuário
+- Mantive os campos já existentes (usuário, valor, data/hora)
+- Testei integração com Venda para gerar pagamento automaticamente

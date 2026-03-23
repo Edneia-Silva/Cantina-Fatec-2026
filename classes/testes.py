@@ -1,62 +1,51 @@
+from usuario import Aluno, Professor
 from produto import Produto
 from estoque import Estoque
-
-def testar_estoque():
-    coxinha = Produto("Coxinha", 2.00, 5.00, "20/03/2026", "25/03/2026", 50)
-    suco = Produto("Suco de Laranja", 3.00, 7.00, "21/03/2026", "28/03/2026", 30)
-
-    estoque = Estoque()
-    estoque.adicionar_produto(coxinha)
-    estoque.adicionar_produto(suco)
-
-    print("Produtos no estoque:")
-    estoque.listar_produtos()
-
-    produto_encontrado = estoque.buscar_produto("Coxinha")
-    print("Produto encontrado:", produto_encontrado)
-
-if __name__ == "__main__":
-    testar_estoque()
-
-
-from usuario import Aluno
+from venda import Venda
 from pagamento import Pagamento
 
-def testar_pagamento():
+def testar_venda_suco_antigo_primeiro():
     aluno = Aluno("Alana", "IA")
-    pagamento = Pagamento(aluno, 7.50)
 
-    print(pagamento)
+    suco_antigo = Produto("Suco de Laranja", 3.00, 7.00, "15/03/2026", "25/03/2026", 5)
+    suco_novo   = Produto("Suco de Laranja", 3.00, 7.00, "20/03/2026", "30/03/2026", 10)
 
-if __name__ == "__main__":
-    testar_pagamento()
+    estoque = Estoque()
+    estoque.adicionar_produto(suco_antigo)
+    estoque.adicionar_produto(suco_novo)
 
+    print("Estoque antes da venda:")
+    estoque.listar_produtos()
 
-
-from usuario import Aluno, Professor
-
-def testar_usuarios():
-    aluno = Aluno("Alex", "IA")
-    professor = Professor("João")
-
-    print(aluno)       # Deve mostrar: Maria (Aluno)
-    print(professor)   # Deve mostrar: João (Professor)
-
-if __name__ == "__main__":
-    testar_usuarios()
-
-
-from usuario import Aluno
-from produto import Produto
-from venda import Venda
-
-def testar_venda():
-    aluno = Aluno("Alana", "IA")
-    coxinha = Produto("Coxinha", 2.00, 5.00, "20/03/2026", "25/03/2026", 50)
-
-    venda = Venda(aluno, coxinha, 2)
+    venda = Venda(aluno, estoque, "Suco de Laranja", 7)
     print(venda)
     print("Pagamento:", venda.pagamento)
 
+    print("\nEstoque após a venda:")
+    estoque.listar_produtos()
+
+
+def testar_venda_coxinha_antigo_primeiro():
+    aluno = Aluno("Alana", "IA")
+
+    coxinha_antiga = Produto("Coxinha", 2.00, 5.00, "15/03/2026", "25/03/2026", 5)
+    coxinha_nova   = Produto("Coxinha", 2.00, 5.00, "20/03/2026", "30/03/2026", 10)
+
+    estoque = Estoque()
+    estoque.adicionar_produto(coxinha_antiga)
+    estoque.adicionar_produto(coxinha_nova)
+
+    print("Estoque antes da venda:")
+    estoque.listar_produtos()
+
+    venda = Venda(aluno, estoque, "Coxinha", 7)
+    print(venda)
+    print("Pagamento:", venda.pagamento)
+
+    print("\nEstoque após a venda:")
+    estoque.listar_produtos()
+
+
 if __name__ == "__main__":
-    testar_venda()
+    testar_venda_suco_antigo_primeiro()
+    # testar_venda_coxinha_antigo_primeiro()
