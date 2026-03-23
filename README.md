@@ -1,5 +1,7 @@
 # Cantina-Fatec-2026
 
+Este projeto simula o funcionamento de uma cantina acadêmica, com controle de estoque, vendas e pagamentos.
+
 ## Commit 1
 - Estrutura inicial do projeto criada.
 - Implementei apenas a classe **Aluno**, que representa os usuários da Cantina Fatec neste primeiro momento.
@@ -95,3 +97,12 @@
 - Ajustei __str__ da classe Venda para exibir também o pagamento
 - Mantive a lógica de consumo FIFO e validação de estoque
 - Testei com diferentes usuários para confirmar integração completa
+
+## Commit 18 – Edição de quantidade em estoque
+- Adicionei o método `editar_quantidade` na classe `Estoque`. Ele permite atualizar a quantidade de um produto já existente e retorna uma mensagem caso o produto não seja encontrado.
+- Para validar essa modificação, criei o arquivo `TesteCantina.py` na raiz do projeto. Esse arquivo executa cenários de teste, incluindo:
+    - Venda FIFO (produtos mais antigos saem primeiro).
+    - Pagamento automático via PIX.
+    - Edição de quantidade em estoque (Commit 18).
+
+

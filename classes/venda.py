@@ -1,5 +1,5 @@
 from datetime import datetime
-from pagamento import Pagamento
+from classes.pagamento import Pagamento
 
 class Venda:
     def __init__(self, usuario, estoque, nome_produto, quantidade):

@@ -48,3 +48,12 @@ class Estoque:
         self.produtos = [p for p in self.produtos if p.quantidade > 0]
 
         return vendidos if restante == 0 else None
+    
+    # Novo método para editar quantidade
+    def editar_quantidade(self, nome, nova_quantidade):
+        produto = self.buscar_produto(nome)
+        if produto:
+            produto.quantidade = nova_quantidade
+            return f"Quantidade do produto {nome} atualizada para {nova_quantidade}."
+        else:
+            return f"Produto {nome} não encontrado no estoque."
