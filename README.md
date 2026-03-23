@@ -99,10 +99,35 @@ Este projeto simula o funcionamento de uma cantina acadêmica, com controle de e
 - Testei com diferentes usuários para confirmar integração completa
 
 ## Commit 18 – Edição de quantidade em estoque
-- Adicionei o método `editar_quantidade` na classe `Estoque`. Ele permite atualizar a quantidade de um produto já existente e retorna uma mensagem caso o produto não seja encontrado.
-- Para validar essa modificação, criei o arquivo `TesteCantina.py` na raiz do projeto. Esse arquivo executa cenários de teste, incluindo:
-    - Venda FIFO (produtos mais antigos saem primeiro).
-    - Pagamento automático via PIX.
-    - Edição de quantidade em estoque (Commit 18).
+- Adicionei o método `editar_quantidade` na classe `Estoque`. 
+- Permite atualizar a quantidade de um produto já existente sem rcriar o objeto.
+- Caso o produto não seja encontrado, retorna uma mensagem informando.  
+- Validado no arquivo `TesteCantina.py` criado na raiz do projeto.
 
+## Commit 19 – Geração de dados aleatórios com Faker
+- Implementada a biblioteca Faker para gerar dados fictícios e automatizar testes.
+- Foram criados exemplos de alunos, produtos e vendas com informações aleatórias, como:  
+    - Nome de aluno (ex.: João, Alex, Alana).  
+    - Produto com nome, preço e quantidade.  
+    - Data e hora da venda.  
+    - Forma de pagamento simulada.  
+- Essa funcionalidade facilita a validação do sistema sem precisar cadastrar manualmente cada item.  
+- Os testes foram centralizados no arquivo `TesteCantina.py`, que agora também utiliza dados aleatórios para simular cenários reais.
+- Objetivo: Permitir que o sistema seja testado em cenários dinâmicos, garantindo que a lógica de venda, pagamento e atualização de estoque funcione corretamente mesmo com dados diferentes a cada execução.
+Resultado esperado
+A cada execução:
+- Produtos diferentes são gerados no estoque.
+- Alunos fictícios são criados com nomes aleatórios.
+- Uma venda aleatória é realizada e o estoque atualizado.
+Exemplo de saída:
+--- Estoque gerado com Faker ---
+Molestias | Estoque: 17 | Preço venda: R$20.0
+Occaecati | Estoque: 11 | Preço venda: R$13.5
+Ex | Estoque: 8 | Preço venda: R$8.0
+Venda realizada: Evelyn comprou 4x Ex por R$32.00 em 23/03/2026 02:12:33
+Pagamento: Evelyn (Aluno, IA) pagou R$32.00 via PIX em 23/03/2026 02:12:33
 
+--- Estoque após venda aleatória ---
+Molestias | Estoque: 17 | Preço venda: R$20.0
+Occaecati | Estoque: 11 | Preço venda: R$13.5
+Ex | Estoque: 4 | Preço venda: R$8.0
