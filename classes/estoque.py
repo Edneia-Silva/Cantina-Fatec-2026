@@ -1,21 +1,22 @@
 from datetime import datetime
+from estrutura_estoque import EstruturaEstoque
 
 class Estoque:
     def __init__(self):
-        self.produtos = []
+        self.produtos = EstruturaEstoque()
 
     def adicionar_produto(self, produto):
-        self.produtos.append(produto)
+        self.produtos.adicionar(produto)
 
     def listar_produtos(self):
-        if not self.produtos:
+        if not self.produtos.listar():
             print("Estoque vazio.")
-        else:
-            for produto in self.produtos:
+        else:        
+            for produto in self.produtos.listar():
                 print(f"{produto.nome} | Estoque: {produto.quantidade} | Preço venda: R${produto.preco_venda}")
 
     def buscar_produto(self, nome):
-        for produto in self.produtos:
+        for produto in self.produtos.listar():
             if produto.nome.lower() == nome.lower():
                 return produto
         return None
@@ -26,9 +27,9 @@ class Estoque:
         hoje = datetime.now().date()
 
         # Ordena pela data de entrada (mais antigos primeiro)
-        self.produtos.sort(key=lambda p: p.data_compra.date())
+        self.produtos.ordenar_por_data()
 
-        for produto in self.produtos:
+        for produto in self.produtos.listar():
             data_venc = produto.data_vencimento.date()
             if data_venc < hoje:
                 print(f"Produto vencido removido: {produto.nome}")
@@ -45,7 +46,7 @@ class Estoque:
                     restante -= produto.quantidade
                     produto.quantidade = 0
 
-        self.produtos = [p for p in self.produtos if p.quantidade > 0]
+        self.produtos.remover_zerados()
 
         return vendidos if restante == 0 else None
     
