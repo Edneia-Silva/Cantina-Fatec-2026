@@ -3,21 +3,27 @@ from classes.pagamento import Pagamento
 
 class Venda:
     def __init__(self, usuario, estoque, nome_produto, quantidade):
-        self.usuario = usuario
-        self.data_hora = datetime.now()
-        self.quantidade = quantidade
+        self._usuario = usuario
+        self._data_hora = datetime.now()
+        
+        # 1. Busca o produto na Lista Encadeada 
+        produto = estoque.buscar_produto(nome_produto)
+        
+        # 2. Validação de estoque 
+        if produto and produto.quantidade >= quantidade:
+            # Baixa o estoque automaticamente usando o @setter
+            produto.quantidade -= quantidade
+            
+            self._valor_total = produto.preco_venda * quantidade
+            
+            # 3. Gera o pagamento PIX
+            self._pagamento = Pagamento(usuario, self._valor_total)
+            print(f"Venda confirmada: {quantidade}x {nome_produto} para {usuario.nome}.")
+        else:
+            print(f"Erro: Estoque insuficiente para {nome_produto}.")
+            self._pagamento = None
 
-        # Consome do estoque (mais antigos primeiro)
-        vendidos = estoque.vender_produto(nome_produto, quantidade)
-        if not vendidos:
-            raise ValueError("Estoque insuficiente ou produto vencido.")
-
-        self.itens = vendidos
-        self.valor_total = sum(produto.preco_venda * qtd for produto, qtd in vendidos)
-        self.pagamento = Pagamento(usuario, self.valor_total)
-    
     def __str__(self):
-        itens_str = ", ".join([f"{qtd}x {produto.nome}" for produto, qtd in self.itens])
-        return (f"Venda realizada: {self.usuario.nome} comprou {itens_str} "
-            f"por R${self.valor_total:.2f} em {self.data_hora.strftime('%d/%m/%Y %H:%M:%S')}\n"
-            f"{self.pagamento}")
+        if self._pagamento:
+            return f"RECIBO: {self._usuario.nome} | Total: R${self._valor_total:.2f} | Pago via PIX"
+        return "Venda não realizada."

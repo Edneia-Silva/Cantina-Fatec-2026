@@ -2,11 +2,15 @@ from datetime import datetime
 
 class Pagamento:
     def __init__(self, usuario, valor):
-        self.usuario = usuario            # objeto Usuario (nome, categoria, curso)
-        self.valor = valor                # valor pago
-        self.data_hora = datetime.now()   # registra automaticamente o momento
-        self.metodo = "PIX"               # forma de pagamento (fixo no projeto)
+        self._usuario = usuario
+        self._valor = valor
+        self._data_hora = datetime.now()
+        self._metodo = "PIX"  # Fixo conforme a regrado projeto
+
+    @property
+    def valor(self): return self._valor
 
     def __str__(self):
-        return (f"Pagamento: {self.usuario.nome} ({self.usuario.categoria}, {self.usuario.curso}) "
-                f"pagou R${self.valor:.2f} via {self.metodo} em {self.data_hora.strftime('%d/%m/%Y %H:%M:%S')}")
+        # Exibe o curso se for Aluno, ou categoria para os demais usuários
+        info_extra = getattr(self._usuario, 'curso', self._usuario.categoria)
+        return f"Pagamento de R${self._valor:.2f} confirmado via {self._metodo} para {self._usuario.nome} ({info_extra})."

@@ -146,3 +146,8 @@ Realizei uma mudança profunda na forma como o estoque é armazenado pelos segui
 - Verifiquei a integração da classe Estoque com a Lista Encadeada manual.
 - Garanti que os métodos de busca e listagem percorram os nós da estrutura (Node Traversal) de forma eficiente.
 - Apliquei o encapsulamento no atributo da estrutura de dados (_lista).
+
+## Commit 26: Finalização do Módulo de Vendas e Pagamento PIX
+- Integrei a classe Venda com a busca em Lista Encadeada do Estoque.
+- Implementei a baixa automática de estoque com validação via Encapsulamento.
+- Consolidei a geração de comprovantes de Pagamento via PIX, registrando categoria e detalhes do usuário conforme o roteiro.
