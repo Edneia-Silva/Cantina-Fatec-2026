@@ -114,8 +114,24 @@ Este projeto simula o funcionamento de uma cantina acadêmica, com controle de e
 - Essa funcionalidade facilita a validação do sistema sem precisar cadastrar manualmente cada item.  
 - Os testes foram centralizados no arquivo `TesteCantina.py`, que agora também utiliza dados aleatórios para simular cenários reais.
 
-# Commit 20 – Persistência de dados e Relatórios
+## Commit 20 – Persistência de dados e Relatórios
 - Implementada a utilização da biblioteca pickle para armazenar dados de forma não volátil, permitindo salvar e carregar posteriormente o estoque e as vendas.
 - Criadas funções de relatórios de vendas e relatórios de consumo, possibilitando visualizar:todas as transações realizadas e quantidade de produtos consumidos em cada venda.
 - Agora o sistema não apenas gera dados aleatórios com Faker, mas também mantém histórico e apresenta relatórios completos.
 
+## Commit 21 - Cria classe EstruturaEstoque para encapsular lista de produtos
+-  Criação da classe EstruturaEstoque.
+- Encapsulamento de uma lista interna para armazenar produtos.
+- Implementação de métodos próprios para manipulação dos dados.
+- Preparação para substituir o uso direto de listas no controle de estoque.
+
+## Commi 22 - Refatora classe Estoque para utilizar EstruturaEstoque
+- Substituição do uso direto de lista por EstruturaEstoque
+- Atualização dos métodos para utilizar a nova estrutura
+- Adequação ao encapsulamento de dados
+
+## Commit 23: Refatoração estrutural e implementação de lista encadeada
+Realizei uma mudança profunda na forma como o estoque é armazenado pelos seguintes motivos:
+1.	Conformidade com os requisitos: o projeto exige o desenvolvimento de estruturas de dados próprias. Substituí o uso de listas nativas [] por uma Lista Encadeada manual (com classes No e ListaEncadeada), eliminando o uso de funções prontas como .sort(). 
+2.	Lógica PVPS (Primeiro que Vence, Primeiro que Sai): como a cantina lida com produtos perecíveis (coxinhas, sucos, industrializados), a nova estrutura insere os produtos já ordenados pela data de vencimento. 
+3.	Encapsulamento: apliquei o conceito de atributos protegidos e métodos de acesso (Getters/Setters) para garantir que dados sensíveis, como a quantidade em estoque, não sejam alterados de forma indevida.
