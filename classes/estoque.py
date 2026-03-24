@@ -1,14 +1,14 @@
 from classes.estrutura_dados import ListaEncadeada
 
 class Estoque:
-    def __init__(self):  
-        self.lista = ListaEncadeada() 
+    def __init__(self):          
+        self._lista = ListaEncadeada() 
 
     def cadastrar(self, produto):      
-        self.lista.adicionar_por_vencimento(produto)
+        self._lista.adicionar_por_vencimento(produto)
 
-    def listar_produtos(self):      
-        atual = self.lista.cabeca
+    def listar_produtos(self):              
+        atual = self._lista.cabeca
         if atual is None:
             print("Estoque vazio.")
             return
@@ -20,8 +20,7 @@ class Estoque:
             atual = atual.proximo
 
     def buscar_produto(self, nome):
-        """Procura um produto pelo nome na corrente de nós."""
-        atual = self.lista.cabeca
+        atual = self._lista.cabeca
         while atual is not None:
             if atual.produto.nome.lower() == nome.lower():
                 return atual.produto

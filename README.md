@@ -141,3 +141,8 @@ Realizei uma mudança profunda na forma como o estoque é armazenado pelos segui
 - Otimização da Herança utilizando super().__init__ para evitar redundância de código.
 - Manutenção do polimorfismo através do método acessar_cantina(), personalizado para cada tipo de usuário.
 - Implementação de validação de quantidade na classe Produto através de @setter.
+
+## Commit 25: Consolidação do estoque com estrutura de lista encadeada e encapsulamento
+- Verifiquei a integração da classe Estoque com a Lista Encadeada manual.
+- Garanti que os métodos de busca e listagem percorram os nós da estrutura (Node Traversal) de forma eficiente.
+- Apliquei o encapsulamento no atributo da estrutura de dados (_lista).
