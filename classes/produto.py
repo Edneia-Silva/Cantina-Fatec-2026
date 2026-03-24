@@ -2,18 +2,29 @@ from datetime import datetime
 
 class Produto:
     def __init__(self, nome, preco_compra, preco_venda, data_compra, data_vencimento, quantidade):
-        self.nome = nome
-        self.preco_compra = preco_compra
-        self.preco_venda = preco_venda
-        self.data_compra = datetime.strptime(data_compra, "%d/%m/%Y")
-        self.data_vencimento = datetime.strptime(data_vencimento, "%d/%m/%Y")
-        self.quantidade = quantidade
+        self._nome = nome
+        self._preco_compra = preco_compra
+        self._preco_venda = preco_venda
+        # Importante: converter para data para a Lista Encadeada comparar depois
+        self._data_compra = datetime.strptime(data_compra, "%d/%m/%Y")
+        self._data_vencimento = datetime.strptime(data_vencimento, "%d/%m/%Y")
+        self._quantidade = quantidade
 
-    def baixar_estoque(self, qtd):
-        if qtd <= self.quantidade:
-            self.quantidade -= qtd
-            return True
-        return False
+    @property
+    def nome(self): return self._nome
 
-    def __str__(self):
-        return f"{self.nome} | Estoque: {self.quantidade} | Preço venda: R${self.preco_venda}"
+    @property
+    def preco_venda(self): return self._preco_venda
+
+    @property
+    def data_vencimento(self): return self._data_vencimento
+
+    @property
+    def quantidade(self): return self._quantidade
+
+    @quantidade.setter
+    def quantidade(self, valor):
+        if valor >= 0:
+            self._quantidade = valor
+        else:
+            print("Erro: Quantidade inválida!")

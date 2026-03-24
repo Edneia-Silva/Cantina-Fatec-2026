@@ -135,3 +135,9 @@ Realizei uma mudança profunda na forma como o estoque é armazenado pelos segui
 1.	Conformidade com os requisitos: o projeto exige o desenvolvimento de estruturas de dados próprias. Substituí o uso de listas nativas [] por uma Lista Encadeada manual (com classes No e ListaEncadeada), eliminando o uso de funções prontas como .sort(). 
 2.	Lógica PVPS (Primeiro que Vence, Primeiro que Sai): como a cantina lida com produtos perecíveis (coxinhas, sucos, industrializados), a nova estrutura insere os produtos já ordenados pela data de vencimento. 
 3.	Encapsulamento: apliquei o conceito de atributos protegidos e métodos de acesso (Getters/Setters) para garantir que dados sensíveis, como a quantidade em estoque, não sejam alterados de forma indevida.
+
+## Commit 24: Refatoração para Encapsulamento, Herança e Polimorfismo em todas as categorias de Usuários e Produtos
+- Padronização do encapsulamento com atributos protegidos (_) e uso de @property nas classes Usuario, Aluno, Professor, Servidor, Visitante e Produto.
+- Otimização da Herança utilizando super().__init__ para evitar redundância de código.
+- Manutenção do polimorfismo através do método acessar_cantina(), personalizado para cada tipo de usuário.
+- Implementação de validação de quantidade na classe Produto através de @setter.

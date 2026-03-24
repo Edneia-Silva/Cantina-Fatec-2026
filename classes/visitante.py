@@ -3,10 +3,6 @@ from classes.usuario import Usuario
 class Visitante(Usuario):
     def __init__(self, nome, documento):
         super().__init__(nome, "Visitante")
-        self.documento = documento
-
-    def __str__(self):
-        return f"Visitante {self.nome} - Documento: {self.documento}"
-
+        self._documento = documento
     def acessar_cantina(self):
-        return f"Visitante {self.nome} acessa a cantina com documento e autorização."
+        return f"Visitante {self._nome} (Doc: {self._documento}) acessou."

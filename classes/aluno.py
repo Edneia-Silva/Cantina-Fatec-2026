@@ -1,13 +1,9 @@
 from classes.usuario import Usuario
 
 class Aluno(Usuario):
-    def __init__(self, nome, matricula, curso):
-        super().__init__(nome, "Aluno")
-        self.matricula = matricula
-        self.curso = curso
-
-    def __str__(self):
-        return f"{self.nome} ({self.matricula}) - {self.curso}"
-
+    def __init__(self, nome, curso):
+        super().__init__(nome, "Aluno") # Envia para a 'mãe'
+        self._curso = curso
+        
     def acessar_cantina(self):
-        return f"Aluno {self.nome} acessa a cantina com carteirinha."
+        return f"Aluno {self._nome} do curso {self._curso} acessou."
