@@ -49,3 +49,5 @@ def testar_venda_coxinha_antigo_primeiro():
 if __name__ == "__main__":
     testar_venda_suco_antigo_primeiro()
     # testar_venda_coxinha_antigo_primeiro()
+
+
