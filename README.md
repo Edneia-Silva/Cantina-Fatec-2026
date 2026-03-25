@@ -151,3 +151,10 @@ Realizei uma mudança profunda na forma como o estoque é armazenado pelos segui
 - Integrei a classe Venda com a busca em Lista Encadeada do Estoque.
 - Implementei a baixa automática de estoque com validação via Encapsulamento.
 - Consolidei a geração de comprovantes de Pagamento via PIX, registrando categoria e detalhes do usuário conforme o roteiro.
+
+## Commit Final: Sistema de Gestão Consolidado com Lista Encadeada e Persistência
+- Refatoração completa concluída: removidos arquivos de classe legados e redundantes.
+- Integração total do fluxo de Venda com a estrutura manual de Lista Encadeada (PVPS).
+- Implementação de persistência não volátil utilizando a biblioteca pickle (estoque_cantina.pkl).
+- Simulação de usuários (Aluno, Visitante, etc.) e acessos via Faker.
+- Sistema 100% aderente aos requisitos de Controle de Estoque, Pagamento e Consumo.

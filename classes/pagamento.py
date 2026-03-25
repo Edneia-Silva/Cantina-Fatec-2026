@@ -2,15 +2,22 @@ from datetime import datetime
 
 class Pagamento:
     def __init__(self, usuario, valor):
-        self._usuario = usuario
+        self._nome = usuario.nome
+        self._categoria = usuario.categoria
         self._valor = valor
         self._data_hora = datetime.now()
-        self._metodo = "PIX"  # Fixo conforme a regrado projeto
-
-    @property
-    def valor(self): return self._valor
+        
+        # Lógica para capturar a "Info Extra" (Curso, Setor, Disciplina ou Documento)
+        if hasattr(usuario, '_curso'):
+            self._detalhe = f"Curso: {usuario._curso}"
+        elif hasattr(usuario, '_setor'):
+            self._detalhe = f"Setor: {usuario._setor}"
+        elif hasattr(usuario, '_disciplina'):
+            self._detalhe = f"Disc: {usuario._disciplina}"
+        else:
+            self._detalhe = f"Doc: {getattr(usuario, '_documento', 'N/A')}"
 
     def __str__(self):
-        # Exibe o curso se for Aluno, ou categoria para os demais usuários
-        info_extra = getattr(self._usuario, 'curso', self._usuario.categoria)
-        return f"Pagamento de R${self._valor:.2f} confirmado via {self._metodo} para {self._usuario.nome} ({info_extra})."
+        data_f = self._data_hora.strftime("%d/%m/%Y %H:%M")
+        return (f"[{data_f}] {self._nome} ({self._categoria}) | "
+                f"{self._detalhe} | Valor: R${self._valor:.2f} | Metodo: PIX")

@@ -7,3 +7,7 @@ class Aluno(Usuario):
         
     def acessar_cantina(self):
         return f"Aluno {self._nome} do curso {self._curso} acessou."
+    
+    @property
+    def curso(self):
+        return self._curso
