@@ -8,7 +8,7 @@ class ListaEncadeada:
         self.cabeca = None  
 
     def adicionar_por_vencimento(self, novo_produto):
-        novo_no = No(novo_produto)        
+        novo_no = No(novo_produto)               
        
         if self.cabeca is None or novo_produto.data_vencimento < self.cabeca.produto.data_vencimento:
             novo_no.proximo = self.cabeca
@@ -21,3 +21,5 @@ class ListaEncadeada:
         
         novo_no.proximo = atual.proximo
         atual.proximo = novo_no
+    
+    
