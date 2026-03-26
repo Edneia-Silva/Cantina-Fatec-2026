@@ -42,7 +42,7 @@ def executar_sistema():
         p5 = Produto("Café Expresso", 2.0, 4.5, "26/03/2026", "30/12/2026", 100)
         p10 = Produto("Refrigerante Lata", 3.5, 7.0, "26/03/2026", "20/12/2026", 60)
 
-        # --- 3 NOVOS DOCES ---
+        # 3 DOCES 
         p7 = Produto("Brigadeiro Gourmet", 2.0, 5.0, "26/03/2026", "30/03/2026", 40)
         p8 = Produto("Bolo de Pote", 5.0, 12.0, "26/03/2026", "29/03/2026", 20)
         p9 = Produto("Paçoca", 0.5, 1.5, "26/03/2026", "30/06/2027", 100)
@@ -69,7 +69,7 @@ def executar_sistema():
 
     print("\n--- Processando Fluxo de Vendas (10 Transações) ---")
 
-    # Bloco de Salgados
+    # Bloco de salgados
     v1 = Venda(aluno, estoque, "Coxinha", 2)
     lista_de_vendas.adicionar_por_vencimento(v1)
     
@@ -79,7 +79,7 @@ def executar_sistema():
     v3 = Venda(aluno, estoque, "Kibe Assado", 1)
     lista_de_vendas.adicionar_por_vencimento(v3)
 
-    # Bloco de Bebidas
+    # Bloco de bebidas
     v4 = Venda(aluno, estoque, "Suco Natural", 1)
     lista_de_vendas.adicionar_por_vencimento(v4)
     
@@ -89,7 +89,7 @@ def executar_sistema():
     v6 = Venda(aluno, estoque, "Café Expresso", 1)
     lista_de_vendas.adicionar_por_vencimento(v6)
 
-    # Bloco de Doces
+    # Bloco de doces
     v7 = Venda(visitante, estoque, "Bolo de Pote", 1)
     lista_de_vendas.adicionar_por_vencimento(v7)
     
